@@ -15,7 +15,7 @@ module.exports = {
         unique: true,  // userId는 중복 방지
       },
       password: {
-        type: Sequelize.STRING(45),
+        type: Sequelize.STRING(255),
         allowNull: false,
       },
       name: {
@@ -23,7 +23,7 @@ module.exports = {
         allowNull: false,
       },
       address: {
-        type: Sequelize.STRING(200),
+        type: Sequelize.STRING(255),
         allowNull: false,
       },
       phoneNumber: {

@@ -12,10 +12,10 @@ module.exports = (sequelize, DataTypes) => {
       userId: {
         type: DataTypes.STRING(45),
         allowNull: false,
-        unique: true,  // userId는 중복 방지
+        // unique: true,  // userId는 중복 방지
       },
       password: {
-        type: DataTypes.STRING(45),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       name: {
@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
       },
       address: {
-        type: DataTypes.STRING(200),
+        type: DataTypes.STRING(255),
         allowNull: false,
       },
       phoneNumber: {
@@ -34,8 +34,8 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING(10),
         allowNull: false,
       },
-      age: {
-        type: DataTypes.INTEGER,
+      birth: {
+        type: DataTypes.DATEONLY,
         allowNull: false,
       },
     },
