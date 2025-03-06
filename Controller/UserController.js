@@ -83,6 +83,7 @@ const loginProcess = async (req, res) => {
   const { id, pw } = req.body;
   console.log(req.body);
   const user = await User.findOne({ where: { userId: id } });
+  console.log(user);
 
   if (user) {
     try {

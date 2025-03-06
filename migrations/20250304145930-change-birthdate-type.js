@@ -15,10 +15,10 @@ module.exports = {
 
   async down (queryInterface, Sequelize) {
     // 1. birth 컬럼을 다시 age로 변경
-    await queryInterface.renameColumn("Users", "birth", "age");
+    await queryInterface.renameColumn("user", "birth", "age");
 
     // 2. age 컬럼 타입을 INTEGER로 되돌리기
-    await queryInterface.changeColumn("Users", "age", {
+    await queryInterface.changeColumn("user", "age", {
       type: Sequelize.INTEGER,
       allowNull: false,
     });

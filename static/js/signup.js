@@ -6,33 +6,6 @@ let phoneValue = false;
 let addressValue = false; // 임시
 let birthValue = false;
 
-// 생년월일에 값 추가
-// const yearA = this.document.getElementById("year");
-// const monthA = this.document.getElementById("month");
-// const dayA = this.document.getElementById("day");
-
-// let now = new Date();
-// let year = now.getFullYear();
-// let month = now.getMonth() + 1 > 9 ? "" + (now.getMonth() + 1) : "0" + (now.getMonth() + 1);
-// let day = now.getDate() > 9 ? "" + now.getDate() : "0" + now.getDate();
-
-// // 연도 select 만들기
-// for (let i = 1900; i <= year; i++) {
-//   yearA.innerHTML += `<option value="${i}">${i}</option>`;
-// }
-
-// // 월별 select 만들기
-// for (let i = 1; i <= 12; i++) {
-//   let mm = i > 9 ? i : "0" + i;
-//   monthA.innerHTML += `<option value="${i}">${i}</option>`;
-// }
-
-// // 일별 select 만들기
-// for (let i = 1; i <= 31; i++) {
-//   let dd = i > 9 ? i : "0" + i;
-//   dayA.innerHTML += `<option value="${i}">${i}</option>`;
-// }
-
 // 유효성 검증 통과 시 회원가입 버튼 disabled
 const saveData = document.querySelector(".saveData");
 
@@ -146,7 +119,7 @@ const valueName = (e) => {
 };
 names.addEventListener("blur", valueName);
 
-// 생년월일 확인
+// 생년월일 작성여부 확인
 const birth = document.getElementById('birth');
 const content08 = document.querySelector('.content08');
 
@@ -160,6 +133,8 @@ const valueBirth = () => {
     content08.innerHTML = `<div>생년월일 : 생년월일은 8자리 숫자로 입력해 주세요.</div>`
     birthValue = false;
   } else {
+    let formatBirth = birth.value.replace(/^(\d{4})(\d{2})(\d{2})$/, '$1.$2.$3');
+    birth.value = formatBirth;
     content08.innerHTML = "";
     birthValue = true;
   }
@@ -232,16 +207,8 @@ const signup = () => {
   }
   console.log(genderChecked.value);
 
-  // 생년월일 변환02
-  const year = birth.value.slice(0, 4);
-  const month = birth.value.slice(4, 6);
-  const day = birth.value.slice(6, 8);
-  const editBirth = `${year}-${month}-${day}`;
-  console.log(editBirth);
-
   // 생년월일 변환
-  // const birth = `${yearA.value}-${monthA.value}-${dayA.value}`;
-  // console.log(birth);
+  let dateBirth = birth.value.replaceAll('.', '-');
 
   axios
     .post("/signup", { 
@@ -251,7 +218,7 @@ const signup = () => {
       address: address.value,
       phoneNumber: phone.value,
       gender: genderChecked.value,
-      birth: editBirth
+      birth: dateBirth
     })
     .then((res) => {
       console.log(res);
