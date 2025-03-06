@@ -12,13 +12,20 @@
         <div class="main_logo_img">
           <img
             class="imgstyle"
-            src="../static/images/main_logo.png"
+            src="/images/main_logo.png"
             alt="main_logo"
           />
         </div>
         <div class="sidemenu">
-          <div onclick="login()">로그인</div>
-          <div onclick="signup()">회원가입</div>
+          <div>
+            <a href="/login">로그인</a>
+          </div>
+          <div>
+            <a href="/signup">회원가입</a>
+          </div>
+          <div>
+            <button class="logout" onclick="logoutFunc()">로그아웃</button>
+          </div>
         </div>
       </div>
       <div class="container_category">
@@ -49,7 +56,7 @@
               <div class="card_img_style">
                 <img
                   class="imgstyle"
-                  src="../static/images/main_logo.png"
+                  src="/images/main_logo.png"
                   alt=""
                 />
               </div>
@@ -73,7 +80,7 @@
               <div class="card_img_style">
                 <img
                   class="imgstyle"
-                  src="../static/images/main_logo.png"
+                  src="/images/main_logo.png"
                   alt=""
                 />
               </div>
@@ -123,6 +130,8 @@
         <div>게시글 중단 요청 서비스</div>
       </div>
     </div>
+    
+
   </body>
   <script src="/js/main.js"></script>
 </html>

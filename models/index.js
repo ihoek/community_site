@@ -21,6 +21,9 @@ db.Sequelize = Sequelize; //Sequelize팩키지에서 제공하는 각종 데이�
 
 //게시글 모델 모듈 파일 참조하고 db속성정의하기
 db.User = require('./user.js')(sequelize, Sequelize.DataTypes);
+db.Category = require('./category.js')(sequelize, Sequelize.DataTypes);
+db.Write = require('./write.js')(sequelize, Sequelize.DataTypes);
+db.Like = require('./like.js')(sequelize, Sequelize.DataTypes);
 
 // 이건 app.js에 작성하는게 좋음
 sequelize
